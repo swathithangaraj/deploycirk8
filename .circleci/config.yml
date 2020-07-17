@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Deploy over ssh
           command: |
-            ssh -vvvv -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /home/swathi/cirk8/deploycirk8 && kubectl create -f namespace.yaml --validate=false && kubectl create -f deployment.yaml -n demo && kubectl get deploy -n demo && kubectl create -f service.yaml -n demo && kubectl get svc -n demo && kubectl rollback sample && kubectl get pods"
+            ssh -vvvv -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /home/swathi/cirk8/deploycirk8 && kubectl create namespace demo && kubectl create -f deployment.yaml -n demo && kubectl get deploy -n demo && kubectl create -f service.yaml -n demo && kubectl get svc -n demo && kubectl rollback sample && kubectl get pods"
 
 
                   #kubectl get ns
