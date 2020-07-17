@@ -1,7 +1,7 @@
 jobs:
   build:
     environment:
-      IMAGE_NAME: swathithangaraj/building-on-ci
+      IMAGE_NAME: swathithangaraj/sample1
     docker:
       - image: 'docker:17.05.0-ce-git'
     steps:
@@ -35,8 +35,7 @@ jobs:
       - run:
           name: Deploy over ssh
           command: |
-            ssh -vvvv -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /home/swathi/swathi && kubectl create ns second && kubectl create -f deployment.yaml -n second && kubectl get deploy -n second && kubectl create -f service.yaml -n second && kubectl get svc -n second && kubectl get pods"
-
+            ssh -vvvv -oStrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /home/swathi/cirk8 && kubectl create namespace.yaml && kubectl create -f deployment.yaml -n demo && kubectl get deploy -n demo && kubectl create -f service.yaml -n demo && kubectl get svc -n demo && kubectl rollback sample && kubectl get pods"
 
 
                   #kubectl get ns
